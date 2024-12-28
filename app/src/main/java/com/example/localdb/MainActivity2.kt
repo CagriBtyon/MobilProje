@@ -8,6 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.content.Intent
+import android.net.ConnectivityManager
+import com.example.localdb.networking.NetworkChecker
+import com.example.localdb.networking.RemoteApi
 
 class MainActivity2 : AppCompatActivity() {
 
@@ -15,6 +18,9 @@ class MainActivity2 : AppCompatActivity() {
     lateinit var editTextPassword: EditText
     lateinit var buttonSave: Button
 
+    private val networkChecker by lazy {
+        NetworkChecker(getSystemService(ConnectivityManager::class.java))
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,5 +43,7 @@ class MainActivity2 : AppCompatActivity() {
             val i = Intent(this , HomeScreen::class.java)
             startActivity(i)
         }
+
+        RemoteApi().getFact()
     }
 }
