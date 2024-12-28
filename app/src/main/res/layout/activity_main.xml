@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity2"
+    android:background="@drawable/ic_launcher_background"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="170dp"
+        android:gravity="center"
+        android:text="Welcome to Login Screen"
+        android:textSize="30dp"
+        android:textStyle="bold"></TextView>
+
+    <EditText
+        android:id="@+id/eTName"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:background="@color/cardview_light_background"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Please Enter Your Name"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/eTPassword"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:background="@color/cardview_light_background"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Please Enter Your Password"
+        android:inputType="text"/>
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SAVE"
+        android:layout_margin="20dp"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+</LinearLayout>
