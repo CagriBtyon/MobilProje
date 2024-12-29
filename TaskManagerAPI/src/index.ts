@@ -1,22 +1,32 @@
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const taskRoutes = require('./routes/taskRoutes');
-require('dotenv').config();
+import express from 'express';
+import http from 'http';
+import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
+import compression from 'compression';
+import cors from 'cors';
+import mongoose from 'mongoose';
+import router from './router';
 
-const app = express();
+const app =  express();
 
-// Veritabanı bağlantısı
-connectDB();
+app.use(cors({
+    credentials: true,
+}))
 
-// Middleware
-app.use(cors());
+app.use(compression());
+app.use(cookieParser());
 app.use(bodyParser.json());
 
-// Rotalar
-app.use('/api/tasks', taskRoutes);
+const server = http.createServer(app);
 
-// Sunucu başlatma
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Sunucu çalışıyor: http://localhost:${PORT}`);
-});
+server.listen(8080, () => {
+    console.log('Server running on http://localhost:8080/')
+})
+
+const MONGO_URL = "mongodb+srv://mobil:mobil2023*@taskappdb.vq4bp.mongodb.net/?retryWrites=true&w=majority&appName=taskappDB"
+
+ mongoose.Promise = Promise;
+ mongoose.connect(MONGO_URL);
+ mongoose.connection.on('error', (error: Error) => console.log(error));
+
+ app.use('/', router())
