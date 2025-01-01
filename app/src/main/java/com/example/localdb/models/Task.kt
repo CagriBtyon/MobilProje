@@ -4,6 +4,6 @@ data class Task(
     val username: String,
     val taskname: String,
     val explanation: String,
-    val completed: Boolean,
+    var completed: Boolean,
     val deadline:String
 )
