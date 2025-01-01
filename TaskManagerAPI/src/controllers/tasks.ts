@@ -73,11 +73,11 @@ export const deleteTaskByID: express.RequestHandler = async (req: express.Reques
     try{
         const {id} = req.body;
         if(!id){
-            res.sendStatus(400);            
+            res.sendStatus(400);
         }
 
         const task = await deleteTaskById(id);
-        
+
         res.status(200).json(task);
     }
     catch(error){
@@ -89,6 +89,7 @@ export const deleteTaskByID: express.RequestHandler = async (req: express.Reques
 export const createNewTask: express.RequestHandler = async (req: express.Request , res: express.Response) => {
     try{
         const {username , taskname , explanation , completed , deadline} = req.body;
+        /*
         if(!username || !taskname){
             res.sendStatus(400);
         }
@@ -97,11 +98,11 @@ export const createNewTask: express.RequestHandler = async (req: express.Request
             res.sendStatus(400);
         }
 
-        const existingUser = await getUserByUserName(username);        
+        const existingUser = await getUserByUserName(username);
         if(!existingUser){
             res.sendStatus(400);
         }
-
+        */
         const task = await createTask({
             username,
             taskname,
@@ -115,5 +116,5 @@ export const createNewTask: express.RequestHandler = async (req: express.Request
     catch(error){
         console.log(error);
         res.sendStatus(400);
-    }
+}
 }
