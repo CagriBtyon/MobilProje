@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("com.google.gms.google-services") // Firebase eklentisi
 }
 
 android {
@@ -62,7 +63,10 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.play.services.location)
-
+    // Firebase Authentication bağımlılığı
+    implementation("com.google.firebase:firebase-auth:22.1.1")
+    // Google Sign-In bağımlılığı
+    implementation("com.google.android.gms:play-services-auth:20.7.0")
     // Test bağımlılıkları
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

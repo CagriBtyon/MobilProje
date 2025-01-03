@@ -26,6 +26,13 @@
         android:text="Completed" />
 
     <Button
+            android:id="@+id/buttonSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Google ile Giriş Yap"
+            android:layout_marginTop="16dp" />
+
+    <Button
         android:id="@+id/buttonDeadline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
