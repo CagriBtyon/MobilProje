@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.application) version "8.2.0"
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
 }
@@ -45,7 +45,7 @@ android {
 dependencies {
     // RecyclerView bağımlılığı, libs üzerinden tanımlanmadığı için doğrudan eklendi
     implementation("androidx.recyclerview:recyclerview:1.3.1")
-
+    implementation("com.squareup.okhttp3:okhttp:4.9.3")
     // AndroidX ve Compose bağımlılıkları
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
